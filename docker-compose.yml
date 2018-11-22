@@ -11,6 +11,13 @@ services:
                 volumes:
                  - ./moose_pkg_install:/opt/moose
                  - fs_projects:/projects
+        framework_test:
+                build: ./framework_test
+                image: centos_moose_framework_test:latest
+                volumes:
+                 - ./moose_pkg_install:/opt/moose
+                 - fs_projects:/projects
+                   
 volumes:
         fs_projects:
 
