@@ -5,4 +5,12 @@ services:
                 image: centos_moose_base:latest
                 volumes: 
                   - ./moose_pkg_install:/opt/moose
+        libmesh:
+                build: ./libmesh
+                image: centos_moose_libmesh:latest
+                volumes:
+                 - ./moose_pkg_install:/opt/moose
+                 - fs_projects:/projects
+volumes:
+        fs_projects:
 

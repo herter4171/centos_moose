@@ -11,5 +11,6 @@ yum install gcc \
 	libX11-devel \
 	vi \
 	git \
-	wget -y
+	wget \
+        tcl -y
 
