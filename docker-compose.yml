@@ -1,0 +1,8 @@
+version: '3'
+services:
+        base:
+                build: ./base
+                image: centos_moose_base:latest
+                volumes: 
+                  - ./moose_pkg_install:/opt/moose
+

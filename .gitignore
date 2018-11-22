@@ -1,0 +1,3 @@
+*.rpm
+*.swp
+moose_pkg_install/**
