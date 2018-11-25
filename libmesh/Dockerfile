@@ -1,4 +1,4 @@
-FROM centos_moose_base:latest
+FROM rebuild_test_base:latest
 
 WORKDIR /app
 COPY . /app

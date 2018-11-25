@@ -5,19 +5,23 @@ services:
                 image: centos_moose_base:latest
                 volumes: 
                   - ./moose_pkg_install:/opt/moose
+        base-with-docker:
+                build: ./base-with-docker
+                image: centos_moose_base-with-docker:latest
+                volumes:
+                  - /var/run/docker.sock:/var/run/docker.sock
         libmesh:
                 build: ./libmesh
                 image: centos_moose_libmesh:latest
                 volumes:
                  - ./moose_pkg_install:/opt/moose
                  - fs_projects:/projects
-        framework_test:
-                build: ./framework_test
-                image: centos_moose_framework_test:latest
+        test:
+                build: ./test
+                image: centos_moose_test:latest
                 volumes:
                  - ./moose_pkg_install:/opt/moose
                  - fs_projects:/projects
                    
 volumes:
         fs_projects:
-

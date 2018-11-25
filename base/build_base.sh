@@ -14,3 +14,6 @@ yum install gcc \
 	wget \
         tcl -y
 
+yum clean all
+rm -rf /var/cache/yum
+
