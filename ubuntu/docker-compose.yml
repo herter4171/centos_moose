@@ -1,0 +1,41 @@
+version: '3'
+services:
+        downloader:
+                build: ./downloader
+                image: alpine_moose_downloader:latest
+                volumes: 
+                  - ./moose_pkg_install:/opt/moose
+                  - fs-projects:/projects
+                  - fs-stack:/stack
+                environment:
+                  - ROOT_IMAGE=alpine
+                  - PACKAGES_DIR=/opt/moose
+                  - STACK_SRC=/stack
+                  - GCC_VERSION=7.3.0
+                  - MPICH_VERSION=3.2
+                  - PETSC_VERSION=3.8.3
+        compiler:
+                build: ./compiler
+                image: alpine_moose_compiler:latest
+                volumes:
+                  - ./moose_pkg_install:/opt/moose
+                  - fs-projects:/projects
+                  - fs-stack:/stack
+                environment:
+                  - PACKAGES_DIR=/opt/moose
+                  - PROJECTS_DIR=/projects
+                  - STACK_SRC=/stack
+                  - GCC_VERSION=7.3.0
+                  - MPICH_VERSION=3.2
+                  - PETSC_VERSION=3.8.3
+        build-stack:
+                build: ./build-stack
+                image: alpine_moose_build-stack:latest
+                volumes:
+                  - ./moose_pkg_install:/opt/moose
+                  - fs-projects:/projects
+                  - fs-stack:/stack
+volumes:
+        fs-projects:
+        fs-stack:
+
